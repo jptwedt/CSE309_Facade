@@ -1,10 +1,12 @@
 package srpfacadelab;
 
-public class Item {
-
-    private int id;
+public class Item extends Entity{
 
     private String name;
+
+    // this is a number to represent the item type
+    // there can be many items of the same type
+    private int typeId;
 
     // How much the item heals by.
     private int heal;
@@ -21,23 +23,23 @@ public class Item {
     // Rare items are shiny
     private final boolean rare;
 
-    public Item(int id, String name, int heal, int armour, int weight, boolean unique, boolean rare)
-    {
-        this.rare = rare;
+    public Item(IGameEngine gameEngine, String name, int typeId, int heal, int armour, int weight, boolean unique, boolean rare){
+        super(gameEngine);
         this.setName(name);
+        this.typeId = typeId;
         this.setHeal(heal);
         this.setArmour(armour);
         this.setWeight(weight);
         this.setUnique(unique);
-        this.setId(id);
+        this.rare = rare;
     }
 
     public int getId() {
-        return id;
+        return super.id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getTypeId(){
+        return this.typeId;
     }
 
     public String getName() {

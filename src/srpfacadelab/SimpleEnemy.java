@@ -1,6 +1,6 @@
 package srpfacadelab;
 
-public class SimpleEnemy implements IEnemy {
+public class SimpleEnemy implements IMob {
 
     private int health;
     private String name;
